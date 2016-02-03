@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Online Photo Pixelating Tool</title>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+	<style>
+		#grid{
+			position : absolute;
+			display:table;
+			top : 0;
+			left : 0;
+		}
+		#wrap{
+			position : relative;
+			display : inline-block;
+			margin-top:20px;
+			border : 3px dotted grey;
+			min-height:40px;
+			min-width:40px;
+		}
+		#wrap:after{
+		 content : 'Drag and Drop photo';
+		 position: absolute;
+		 height:100%;
+		 width:100%;
+		 line-height:100%;
+		 top:0;
+		 left:0;
+		 z-index:-1;
+		}
+		#wrap.hover{
+			border-color : green;
+		}
+		
+		#grid .row{
+			display:table-row;
+		}
+		#grid .cell{
+			display:table-cell;
+			border:1px solid rgba(255,255,255,0.3);
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+		#grid .cell:hover{
+			background:rgba(255,255,255,0.3);
+		}
+		#grid .cell.active{
+			background:rgba(0,0,0,0.5);
+		}
+		#btn_download{
+			text-decoration : none;
+			color: inherit
+		}
+		body{
+			text-align:center;
+		}
+		#functionBar{
+			display:inline-flex;
+			flex-direction : column;
+			margin-right:10px;
+		}
+		#functionBar input{
+			width:30px;
+		}
+		#functionBar div{
+			padding : 5px;
+			border : 1px dotted grey;
+		}
+		#appWrap{
+			margin-top:20px;
+			display:flex;
+			justify-content : center;
+		}
+		#image_uploader{
+			display:block;
+		}
+	</style>
+</head>
+<body>
+	<h1>Online Photo Pixelating Tool</h1>
+	<section id="appWrap">
+	<section id='functionBar'>
+		<div>
+			<label>One pixelation is</label><input type='number'><label>px</label><br/>
+			<button id="grid_trigger">Grid It</button>
+		</div>
+		<button id="pixel_trigger">Pixel It</button>
+		<button><a href="#" id="btn_download">Download</a></button>
+	</section>
+	<section>
+		<input id='image_uploader' type='file' />
+		<div id = "wrap">
+			<canvas id = "canvas"></canvas>
+		</div>
+	</section>
+	</section>
+	<pre id="debug"></pre>
+	<script src = "config.js"></script>
+	<script src = "js/pixel_it.js"></script>
+	<script src = "js/grid_it.js"></script>
+	<script src = "js/load_img.js"></script>
+	<script src = "js/main.js"></script>
+</body>
+<html>
